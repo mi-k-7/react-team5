@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap');
+
+html{
+    background-color: #f4f4f9;
+}
+body {
+    margin: 0;
+    padding: 0;
+    
+}
+
+.QuizMain {
+    text-align: center;
+    width: 100%;
+    height: 300px; /* 수정함 */
+    box-sizing: border-box;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+}
+
+.QuizMain-header {
+    width: 100%;
+    background-color: #d9d9d9;
+    padding: 30px;
+    color: black;
+    position: relative;
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: "Hahmlet", serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.QuizMain-title {
+    margin: 0;
+    font-size: 3em;
+}
+
+.QuizMain-info {
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    margin: 0;
+    font-size: 1em;
+}
