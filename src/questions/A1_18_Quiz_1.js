@@ -3,6 +3,37 @@ import useA1_18_Quiz from "./useA1_18_Quiz";
 
 function A1_18_Quiz_1(props) {
     const [answerWrite, correct, answerNum, handleChange, handleClick] = useA1_18_Quiz('A1_18_Quiz_1');
+
+    const TableGroup = [
+        {
+            gNumber: '1번',
+            gImg: props.img1,
+            gName: '(가)',
+            gOption: '앉은 자세',
+            gGood: '골반교정',
+        },
+        {
+            gNumber: '2번',
+            gImg: props.img2,
+            gName: '(나)',
+            gOption: '앉은 자세',
+            gGood: '어깨결림 완화',
+        },
+        {
+            gNumber: '3번',
+            gImg: props.img3,
+            gName: '(다)',
+            gOption: '누운 자세',
+            gGood: '혈액순환',
+        },
+        {
+            gNumber: '4번',
+            gImg: props.img4,
+            gName: '(라)',
+            gOption: '누운 자세',
+            gGood: '허리통증 완화',
+        },
+    ];
     
     return (
         <div>
@@ -11,50 +42,25 @@ function A1_18_Quiz_1(props) {
                 <table className="table" align="center" border={1}>
                     <thead><th colSpan={4}>[ 보기 ]</th></thead>
                     <tbody>
-                        <tr>
-                        <th rowSpan={3}>1번</th>
-                            <td rowSpan={3}><img src={props.img1}/></td>
-                            <td colSpan={2}>(가)</td>
-                        </tr>
-                        <tr>
-                            <td>자세 분류</td> <td>앉은 자세</td>
-                        </tr>
-                        <tr>
-                            <td>효과</td> <td>골반교정</td>
-                        </tr>
-                        <tr>
-                            <th rowSpan={3}>2번</th>
-                            <td rowSpan={3}><img src={props.img2}/></td>
-                            <td colSpan={2}>(나)</td>
-                        </tr>
-                        <tr>
-                            <td>자세 분류</td> <td>앉은 자세</td>
-                        </tr>
-                        <tr>
-                            <td>효과</td> <td>어깨결림 완화</td>
-                        </tr>
-                        <tr>
-                            <th rowSpan={3}>3번</th>
-                            <td rowSpan={3}><img src={props.img3}/></td>
-                            <td colSpan={2}>(다)</td>
-                        </tr>
-                        <tr>
-                            <td>자세 분류</td> <td>누운 자세</td>
-                        </tr>
-                        <tr>
-                            <td>효과</td> <td>혈액순환</td>
-                        </tr>
-                        <tr>
-                            <th rowSpan={3}>4번</th>
-                            <td rowSpan={3}><img src={props.img4}/></td>
-                            <td colSpan={2}>(라)</td>
-                        </tr>
-                        <tr>
-                            <td>자세 분류</td> <td>누운 자세</td>
-                        </tr>
-                        <tr>
-                            <td>효과</td> <td>허리통증 완화</td>
-                        </tr>
+                        {TableGroup.map((TableGroup) => (
+                            <>
+                                <tr>
+                                    <th rowSpan={3}>{TableGroup.gNumber}</th>
+                                    <td rowSpan={3}><img src={TableGroup.gImg}/></td>
+                                    <td colSpan={2}>{TableGroup.gName}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>자세 분류</td>
+                                    <td>{TableGroup.gOption}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>효과</td>
+                                    <td>{TableGroup.gGood}</td>
+                                </tr>
+                            </>
+                        ))}
                     </tbody>
                 </table>
             </div>

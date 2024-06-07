@@ -56,6 +56,24 @@ function A3_2(props) {
         }
     ];
 
+    const TableGroup = [
+        {
+            gName: '저위험음주자',
+            gNum1: '0 ~ 7점',
+            gNum2: '0 ~ 4점',
+        },
+        {
+            gName: '위험음주자',
+            gNum1: '8 ~ 11점',
+            gNum2: '5 ~ 7점',
+        },
+        {
+            gName: '알코올 사용장애 추정자',
+            gNum1: '12점 이상',
+            gNum2: '8점 이상',
+        },
+    ];
+
     const handleChange = (gName, value) => {
         setSelected({
             ...selected,
@@ -77,6 +95,7 @@ function A3_2(props) {
         console.log(totalScore);
     }
 
+    
     return (
         <div>
             <h1 className="header">인지 중재 치료</h1>
@@ -114,21 +133,15 @@ function A3_2(props) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>저위험음주자</td>
-                                            <td>0 ~ 7점</td>
-                                            <td>0 ~ 4점</td>
-                                        </tr>
-                                        <tr>
-                                            <td>위험음주자</td>
-                                            <td>8 ~ 11점</td>
-                                            <td>5 ~ 7점</td>
-                                        </tr>
-                                        <tr>
-                                            <td>알코올 사용장애 추정자</td>
-                                            <td>12점 이상</td>
-                                            <td>8점 이상</td>
-                                        </tr>
+                                        {TableGroup.map((TableGroup) => (
+                                            <>
+                                                <tr>
+                                                    <td>{TableGroup.gName}</td>
+                                                    <td>{TableGroup.gNum1}</td>
+                                                    <td>{TableGroup.gNum2}</td>
+                                                </tr>
+                                            </>
+                                        ))}
                                     </tbody>
                                 </table>
                             </div>
