@@ -47,16 +47,16 @@ function Quiz7_2(props) {
                                 <tr>
                                     <th rowSpan={3}>{TableGroup.gNumber}</th>
                                     <td rowSpan={3}><img src={TableGroup.gImg}/></td>
-                                    <td colSpan={2}>{TableGroup.gName}</td>
+                                    <td width="40%" colSpan={2}>{TableGroup.gName}</td>
                                 </tr>
 
                                 <tr>
-                                    <td>자세 분류</td>
+                                    <td width="15%">자세 분류</td>
                                     <td>{TableGroup.gOption}</td>
                                 </tr>   
 
                                 <tr>
-                                    <td>효과</td>
+                                    <td width="15%">효과</td>
                                     <td>{TableGroup.gGood}</td>
                                 </tr>
                             </>
