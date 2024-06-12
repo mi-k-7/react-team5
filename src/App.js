@@ -3,17 +3,18 @@ import Page1 from "./Page1";
 import Page2 from "./Page2";
 import Page3 from "./Page3";
 import Main from "./Main";
-import A1_18 from './questions/A1_18';
-import A3_2 from './questions/A3_2';
-import A4_4 from './questions/A4_4';
+import Quiz7 from './Quiz7/Quiz7';
+import Quiz8 from './Quiz8/Quiz8';
+import Quiz9 from './Quiz9/Quiz9';
 
 function App() {
   return (
     <Routes>
       <Route path='/' element={<Main />} />
-      <Route path='/A1_18' element={<A1_18 />} />
-      <Route path='/A3_2' element={<A3_2 />} />
-      <Route path='/A4_4' element={<A4_4 />} />
+      <Route path='/Quiz7' element={<Quiz7 />} />
+      <Route path='/Quiz8' element={<Quiz8 />} />
+      <Route path='/Quiz9' element={<Quiz9 />} />
+
       {/* <Route path='/Page1' element={<Page1 />} />
       <Route path='/Page2' element={<Page2 />} />
       <Route path='/Page3' element={<Page3 />} /> */}
