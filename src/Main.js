@@ -5,7 +5,11 @@ function Main(props) {
     return (
         <div>
             <h2>메인 화면</h2>
-            <button><Link to={'./Quiz7'}>시작하기</Link></button>
+            
+            <div className='next_page'>
+                <p>toOtherPage</p>
+                <Link to={'/Quiz7'} className='start-button'>시작하기</Link>
+            </div>
         </div>
     );
 }
