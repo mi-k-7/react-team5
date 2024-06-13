@@ -170,7 +170,7 @@ function Quiz8(props) {
                 </div>
                 <div className="Quiz8-answer">
                     <div className="Quiz8-answer-content">
-                        1. 귀하의 점수는 <input className="Quiz8-answer-content-inner" type="number" value={answerWrite} onChange={(e) => setAnswerWrite(e.target.value)} /> 점입니다.
+                        1. 귀하의 점수는 <input className="Quiz8-answer-content-inner" value={answerWrite} onChange={(e) => setAnswerWrite(e.target.value)} /> 점입니다.
                         <br />
                         2. 아래의 표에서 본인의 성별과 점수에 해당하는 영역을 누르세요.
                         <table className="Quiz8-table-answer" align="center" border={1}>
