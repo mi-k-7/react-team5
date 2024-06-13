@@ -112,15 +112,13 @@ function Quiz9(props) {
     }
 
     return (
-        <>
-            <main className="Quiz9-main">
-                <div className="Quiz9-container">
-                    <h2>Q. 다음 속담의 틀린 부분을 바르게 고친 후 따라 읽어보세요.</h2>
-                    <h3 className="Quiz9-container-h3">문제) {random.gQuestion}</h3>
-                    {!hint && <button className="Quiz9-container-hint" onClick={handleHint}>힌트 보기</button>}
-                    {hint && <h4 className="Quiz9-container-h4">{random.gHint}</h4>}
-                    
-                </div>
+        <main className="Quiz9-main">
+            <div className="Quiz9-container">
+                <h2>Q. 다음 속담의 틀린 부분을 바르게 고친 후 따라 읽어보세요.</h2>
+                <h3 className="Quiz9-container-h3">문제) {random.gQuestion}</h3>
+                {!hint && <button className="Quiz9-container-hint" onClick={handleHint}>힌트 보기</button>}
+                {hint && <h4 className="Quiz9-container-h4">{random.gHint}</h4>}
+            
 
                 <div className="Quiz9-answer">
                     <div className="Quiz9-answer-content">
@@ -128,15 +126,18 @@ function Quiz9(props) {
                             <input className="Quiz9-answer-content-inner" type="text" onChange={(event) => handleChange(random.gName, event.target.value)}/>
                         </label>
                     </div>
+                    
                     <div className="Quiz9-answer-button-content">
                         <button className="Quiz9-answer-button" onClick={handleCheck}>정답 확인</button>
                     </div>
                 </div>
-            </main>
-            <div className="Quiz7-next-button">
-                <button><Link to={'/'}>처음으로</Link></button>
+
+                <div className='next_page'>
+                    <p>toOtherPage</p>
+                    <Link to={'/'} className='start-button'>처음으로</Link>
+                </div>
             </div>
-        </>
+        </main>
     );
 }
 
