@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2';
 import "./Quiz8.css";
 
 function Quiz8(props) {
@@ -110,7 +111,24 @@ function Quiz8(props) {
     };
 
     const handleCheck = () => {
-        setCorrect((Number(answerWrite) === totalScore) && (answerClick === selected2));
+        const isCorrect = (Number(answerWrite) === totalScore) && (answerClick === selected2);
+        setCorrect(isCorrect);
+
+        if(isCorrect) {
+            Swal.fire({
+                icon: 'success',
+                title: '정답입니다!',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        } else {
+            Swal.fire({
+                icon: 'error',
+                text: '오답입니다. :(',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
     };
 
     return (
@@ -193,9 +211,6 @@ function Quiz8(props) {
                     <div className="Quiz8-answer-button-content">
                         <button className="Quiz8-answer-button" onClick={handleCheck}>정답 확인</button>
                     </div>
-                    {correct !== null && (
-                        <p className="Quiz8-answer-p">{correct ? '정답입니다!' : '오답입니다. 다시 풀어보세요.'}</p>
-                    )}
                 </div>
             </main>
             <div className="Quiz7-next-button">
