@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2';
 import "./Quiz8.css";
 
 function Quiz8(props) {
@@ -110,7 +111,24 @@ function Quiz8(props) {
     };
 
     const handleCheck = () => {
-        setCorrect((Number(answerWrite) === totalScore) && (answerClick === selected2));
+        const isCorrect = (Number(answerWrite) === totalScore) && (answerClick === selected2);
+        setCorrect(isCorrect);
+
+        if(isCorrect) {
+            Swal.fire({
+                icon: 'success',
+                title: '정답입니다!',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        } else {
+            Swal.fire({
+                icon: 'error',
+                text: '오답입니다. :(',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
     };
 
     return (
@@ -149,58 +167,60 @@ function Quiz8(props) {
                             ))}
                         </tbody>
                     </table>
-                </div>
-                <div className="Quiz8-answer">
-                    <div className="Quiz8-answer-content">
-                        1. 귀하의 점수는 <input className="Quiz8-answer-content-inner" type="number" value={answerWrite} onChange={(e) => setAnswerWrite(e.target.value)} /> 점입니다.
-                        <br />
-                        2. 아래의 표에서 본인의 성별과 점수에 해당하는 영역을 누르세요.
-                        <table className="Quiz8-table-answer" align="center" border={1}>
-                            <thead>
-                                <tr>
-                                    <td width={"45%"}></td>
-                                    <td id="Quiz8-table-click"
-                                        className={`Quiz8-table-click ${gender === "남성" ? "Quiz8-table-selected" : ""}`}
-                                        onClick={() => handleGender("남성")}>남성
-                                    </td>
-                                    <td id="Quiz8-table-click"
-                                        className={`Quiz8-table-click ${gender === "여성" ? "Quiz8-table-selected" : ""}`}
-                                        onClick={() => handleGender("여성")}>여성
-                                    </td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {ResultGroup.map(result => (
-                                    <tr key={result.gName}>
-                                        <td>{result.gName}</td>
-                                        <td 
-                                            id="Quiz8-table-click" 
-                                            className={answerClick === result.gNum1 ? "Quiz8-table-selected" : ""} 
-                                            onClick={() => handleResultClick(result.gNum1)}>
-                                                {result.gNum1}
+                
+                    <div className="Quiz8-answer">
+                        <div className="Quiz8-answer-content">
+                            1. 귀하의 점수는 <input className="Quiz8-answer-content-inner" value={answerWrite} onChange={(e) => setAnswerWrite(e.target.value)} /> 점입니다.
+                            <br />
+                            2. 아래의 표에서 본인의 성별과 점수에 해당하는 영역을 누르세요.
+                            <table className="Quiz8-table-answer" align="center" border={1}>
+                                <thead>
+                                    <tr>
+                                        <td width={"45%"}></td>
+                                        <td id="Quiz8-table-click"
+                                            className={`Quiz8-table-click ${gender === "남성" ? "Quiz8-table-selected" : ""}`}
+                                            onClick={() => handleGender("남성")}>남성
                                         </td>
-                                        <td 
-                                            id="Quiz8-table-click" 
-                                            className={answerClick === result.gNum2 ? "Quiz8-table-selected" : ""} 
-                                            onClick={() => handleResultClick(result.gNum2)}>
-                                                {result.gNum2}
+                                        <td id="Quiz8-table-click"
+                                            className={`Quiz8-table-click ${gender === "여성" ? "Quiz8-table-selected" : ""}`}
+                                            onClick={() => handleGender("여성")}>여성
                                         </td>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    {ResultGroup.map(result => (
+                                        <tr key={result.gName}>
+                                            <td>{result.gName}</td>
+                                            <td 
+                                                id="Quiz8-table-click" 
+                                                className={answerClick === result.gNum1 ? "Quiz8-table-selected" : ""} 
+                                                onClick={() => handleResultClick(result.gNum1)}>
+                                                    {result.gNum1}
+                                            </td>
+                                            <td 
+                                                id="Quiz8-table-click" 
+                                                className={answerClick === result.gNum2 ? "Quiz8-table-selected" : ""} 
+                                                onClick={() => handleResultClick(result.gNum2)}>
+                                                    {result.gNum2}
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div className="Quiz8-answer-button-content">
+                            <button className="Quiz8-answer-button" onClick={handleCheck}>정답 확인</button>
+                        </div>
                     </div>
-                    <div className="Quiz8-answer-button-content">
-                        <button className="Quiz8-answer-button" onClick={handleCheck}>정답 확인</button>
+
+                    <div className='next_page'>
+                        <p>toOtherPage</p>
+                        <Link to={'/Quiz9'} className='start-button'>다음문제</Link>
                     </div>
-                    {correct !== null && (
-                        <p className="Quiz8-answer-p">{correct ? '정답입니다!' : '오답입니다. 다시 풀어보세요.'}</p>
-                    )}
                 </div>
             </main>
-            <div className="Quiz7-next-button">
-                <button><Link to={'/Quiz9'}>다음 문제</Link></button>
-            </div>
+            
         </>
     );
 }

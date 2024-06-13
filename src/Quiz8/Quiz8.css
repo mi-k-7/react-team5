@@ -18,10 +18,6 @@ body {
     border: 1px solid #ddd;
 }
 
-.Quiz8-next-button {
-    /* 추가하기 */
-}
-
 .Quiz8-container {
     text-align: center;
     padding: 20px;
@@ -97,7 +93,7 @@ body {
 .Quiz8-table tr {
     width: 20%;
 }
-#Quiz8-table-click:hover {
+.Quiz8-table:hover, #Quiz8-table-click:hover {
     cursor: pointer;
 }
 .Quiz8-table-selected {
