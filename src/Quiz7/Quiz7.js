@@ -105,11 +105,15 @@ function Quiz7(props) {
             {invisible &&
             <>
                 <main className="Quiz7-main">
-                    {questions[random]}
+                    <div className="Quiz7-container">
+                        {questions[random]}
+
+                        <div className='next_page'>
+                            <p>toOtherPage</p>
+                            <Link to={'/Quiz8'} className='start-button'>다음문제</Link>
+                        </div>
+                    </div>
                 </main>
-                <div className="Quiz7-next-button">
-                    <button><Link to={'/Quiz8'}>다음 문제</Link></button>
-                </div>
             </>
             }
         </>
