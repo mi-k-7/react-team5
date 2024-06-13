@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Swal from 'sweetalert2';
 
 function useQuiz7(componentType) {
     const [answerWrite, setanswerWrite] = useState(Array(4).fill(''));
@@ -22,9 +23,24 @@ function useQuiz7(componentType) {
     };
 
     const handleClick = () => {
-        const pass = answerWrite.every((answer,index) => answer == answerCheck[index]);
-        if (pass) setCorrect('정답입니다!');
-        else setCorrect('오답입니다. 다시 풀어보세요.');    
+        const isCorrect = answerWrite.every((answer,index) => answer == answerCheck[index]);
+        setCorrect(isCorrect);
+
+        if(isCorrect) {
+            Swal.fire({
+                icon: 'success',
+                title: '정답입니다!',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        } else {
+            Swal.fire({
+                icon: 'error',
+                text: '오답입니다. :(',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
     };
 
     return [answerWrite, correct, answerNum, handleChange, handleClick];

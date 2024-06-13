@@ -77,7 +77,6 @@ function Quiz7_1(props) {
                 <div className="Quiz7-answer-content">
                     <button className="Quiz7-answer-button" onClick={handleClick}>정답 확인</button>
                 </div>
-                {correct && <p className="Quiz7-answer-content">{correct}</p>}
             </div>
         </>
     );
