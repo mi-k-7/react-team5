@@ -133,7 +133,9 @@ function Quiz9(props) {
                     </div>
                 </div>
             </main>
-            <button><Link to={'/'}>처음으로</Link></button>
+            <div className="Quiz7-next-button">
+                <button><Link to={'/'}>처음으로</Link></button>
+            </div>
         </>
     );
 }
