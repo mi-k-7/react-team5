@@ -89,7 +89,7 @@ function Quiz8(props) {
         const score = Object.values(selected1).reduce((acc, value) => acc + (value !== null ? value : 0), 0);
         setTotalScore(score);
 
-        // 점수에 따른 범위 설정
+        // 성별과 총 점수에 따른 범위 설정
         if(gender === "남성") {
             if (score >= 0 && score <= 7) setSelected2('0 ~ 7점');
             else if (score >= 8 && score <= 11) setSelected2('8 ~ 11점');

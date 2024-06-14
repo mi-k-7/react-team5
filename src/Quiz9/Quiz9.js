@@ -125,9 +125,6 @@ function Quiz9(props) {
                         <label>
                             <input className="Quiz9-answer-content-inner" type="text" onChange={(event) => handleChange(random.gName, event.target.value)}/>
                         </label>
-                    </div>
-                    
-                    <div className="Quiz9-answer-button-content">
                         <button className="Quiz9-answer-button" onClick={handleCheck}>정답 확인</button>
                     </div>
                 </div>

@@ -30,6 +30,7 @@ body {
     width: 100%;
     font-size: 20px;
     text-align: center;
+    border-collapse : collapse;
 }
 
 /* Quiz7_1,2,3.js answer start */
@@ -58,12 +59,27 @@ body {
     padding: 10px;
     width: 150px;
     font-size: 20px;
+    font-weight: 550;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
 }
+
 .Quiz7-answer-button {
     margin: 10px;
-    padding: 10px;
+    padding: 10px 20px;
     width: 150px;
     font-size: 17px;
-    flex-direction: row;
-    justify-content: center;
+    color: #fff;
+    background-color: rgba(128, 128, 128, 0.7);
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+}
+.Quiz7-answer-button:hover {
+    background-color: rgba(0, 0, 139, 0.65);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }

@@ -30,13 +30,7 @@ body {
     height: 500px;
     font-size: 20px;
     text-align: center;
-}
-/* 라디오버튼 수정 완료되면 삭제해도 될듯 */
-.Quiz8-radioLabel {
-    margin: 10px;
-    padding: 10px;
-    width: 50px;
-    font-size: 20px;
+    border-collapse : collapse;
 }
 
 /* Quiz8.js answer start */
@@ -62,15 +56,11 @@ body {
     padding: 10px;
     width: 150px;
     font-size: 20px;
+    font-weight: 550;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
 }
-.Quiz8-answer-button {
-    margin: 10px;
-    padding: 10px;
-    width: 150px;
-    font-size: 17px;
-    flex-direction: row;
-    justify-content: center;
-}
+
 .Quiz8-answer-button-content {
     display: flex;
     flex-direction: row;
@@ -78,10 +68,24 @@ body {
 }
 .Quiz8-answer-button {
     margin: 10px;
-    padding: 10px;
+    padding: 10px 20px;
     width: 150px;
     font-size: 17px;
+    color: #fff;
+    background-color: rgba(128, 128, 128, 0.7);
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
 }
+.Quiz8-answer-button:hover {
+    background-color: rgba(0, 0, 139, 0.65);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
 .Quiz8-answer-p {
     display: flex;
     flex-direction: row;
@@ -90,14 +94,14 @@ body {
 }
 
 /* Quiz8.js table start */
-.Quiz8-table tr {
-    width: 20%;
+.Quiz8-table, .Quiz8-table-answer {
+    border-collapse : collapse;
 }
 .Quiz8-table:hover, #Quiz8-table-click:hover {
     cursor: pointer;
 }
 .Quiz8-table-selected {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 139, 0.15);
 }
 .Quiz8-table-answer {
     width: 100%;

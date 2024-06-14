@@ -47,7 +47,7 @@ const Q2 = <Quiz7_2  img1={img1} img2={img2} img3={img3} img4={img4} />;
 const Q3 = <Quiz7_3  img1={img1} img2={img2} img3={img3} img4={img4} />;
 
 function Quiz7(props) {
-    //[보기] 2분 간 보인 후 비활성화
+    //[보기] 2분 간 보인 후 비활성화, 현재는 기능 동작 여부 확인을 위해 2초로 설정해둠
     const [visible, setVisible] = useState(true);
     useEffect(() => {
         const timeout = setTimeout(() => {
@@ -56,7 +56,7 @@ function Quiz7(props) {
         return () => clearTimeout(timeout);
     }, []);
 
-    //[보기] 2분 간 보일 때 숨어져 있다가 2분 후 활성화
+    //[보기] 2분 간 보일 때 숨어져 있다가 2분 후 활성화, 현재는 기능 동작 여부 확인을 위해 2초로 설정해둠
     const [invisible, setInvisible] = useState(false);
     useEffect(() => {
         const timeout = setTimeout(() => {
