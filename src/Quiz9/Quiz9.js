@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
 import "./Quiz9.css";
 
-function Quiz9(props) {
-    const [answerWrite, setanswerWrite] = useState('');
+function Quiz9() {
+    const [answerWrite, setAnswerWrite] = useState('');
     const [random, setRandom] = useState([]);
     const [hint, setHint] = useState(false);
     const [correct, setCorrect] = useState(null);
 
-    const SokdamGroup = [
+    const sokdamGroup = [
         {
             gName: 'group1',
             gQuestion: "오는 말이 고와야 가는 말이 곱다",
@@ -72,9 +72,9 @@ function Quiz9(props) {
         },
     ];
     
-    const sokdamRandom = parseInt(Math.random() * SokdamGroup.length);
+    const sokdamRandom = parseInt(Math.random() * sokdamGroup.length);
     useEffect(() => {
-        const group = SokdamGroup[sokdamRandom];
+        const group = sokdamGroup[sokdamRandom];
     // console.log(random);
         setRandom(group);
     }, []);
@@ -84,7 +84,7 @@ function Quiz9(props) {
     }
 
     const handleChange = (gName, value) => {
-            setanswerWrite({
+            setAnswerWrite({
                 ...answerWrite,
                 [gName]: value
             });
@@ -131,7 +131,7 @@ function Quiz9(props) {
 
                 <div className='next_page'>
                     <p>toOtherPage</p>
-                    <Link to={'/'} className='start-button'>처음으로</Link>
+                    <Link to={'/'} className='start-button'>다음문제</Link>
                 </div>
             </div>
         </main>

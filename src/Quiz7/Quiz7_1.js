@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import useQuiz7 from "./useQuiz7";
 
 function Quiz7_1(props) {
     const [answerWrite, correct, answerNum, handleChange, handleClick] = useQuiz7('Quiz7_1');
 
-    const TableGroup = [
+    const tableGroup = [
         {
             gNumber: '1번',
             gImg: props.img1,
@@ -41,22 +41,22 @@ function Quiz7_1(props) {
             <table className="Quiz7-table" align="center" border={1}>
                 <thead><th colSpan={4}>[ 보기 ]</th></thead>
                 <tbody>
-                    {TableGroup.map((TableGroup) => (
+                    {tableGroup.map((tableGroup) => (
                         <>
                             <tr>
-                                <th rowSpan={3}>{TableGroup.gNumber}</th>
-                                <td rowSpan={3}><img src={TableGroup.gImg}/></td>
-                                <td width="40%" colSpan={2}>{TableGroup.gName}</td>
+                                <th rowSpan={3}>{tableGroup.gNumber}</th>
+                                <td rowSpan={3}><img src={tableGroup.gImg}/></td>
+                                <td width="40%" colSpan={2}>{tableGroup.gName}</td>
                             </tr>
 
                             <tr>
                                 <td width="15%">자세 분류</td>
-                                <td>{TableGroup.gOption}</td>
+                                <td>{tableGroup.gOption}</td>
                             </tr>
 
                             <tr>
                                 <td width="15%">효과</td>
-                                <td>{TableGroup.gGood}</td>
+                                <td>{tableGroup.gGood}</td>
                             </tr>
                         </>
                     ))}

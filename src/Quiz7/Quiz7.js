@@ -11,7 +11,7 @@ import img2 from "./assets/비둘기자세.jpg";
 import img3 from "./assets/굴렁쇠자세.jpg";
 import img4 from "./assets/아치자세.jpg";
 
-const TableGroup = [
+const tableGroup = [
     {
         gNumber: '1번',
         gImg: img1,
@@ -42,31 +42,31 @@ const TableGroup = [
     },
 ];
 
-const Q1 = <Quiz7_1  img1={img1} img2={img2} img3={img3} img4={img4} />;
-const Q2 = <Quiz7_2  img1={img1} img2={img2} img3={img3} img4={img4} />;
-const Q3 = <Quiz7_3  img1={img1} img2={img2} img3={img3} img4={img4} />;
+const q1 = <Quiz7_1  img1={img1} img2={img2} img3={img3} img4={img4} />;
+const q2 = <Quiz7_2  img1={img1} img2={img2} img3={img3} img4={img4} />;
+const q3 = <Quiz7_3  img1={img1} img2={img2} img3={img3} img4={img4} />;
 
-function Quiz7(props) {
-    //[보기] 2분 간 보인 후 비활성화, 현재는 기능 동작 여부 확인을 위해 2초로 설정해둠
+function Quiz7() {
+    //[보기] 2분 간 보인 후 비활성화, 현재는 기능 동작 여부 확인을 위해 2초로 설정해 둠
     const [visible, setVisible] = useState(true);
     useEffect(() => {
-        const timeout = setTimeout(() => {
+        const timeOut = setTimeout(() => {
             setVisible(false);
         }, 2000);
-        return () => clearTimeout(timeout);
+        return () => clearTimeout(timeOut);
     }, []);
 
-    //[보기] 2분 간 보일 때 숨어져 있다가 2분 후 활성화, 현재는 기능 동작 여부 확인을 위해 2초로 설정해둠
+    //[보기] 2분 간 보일 때 숨어져 있다가 2분 후 활성화, 현재는 기능 동작 여부 확인을 위해 2초로 설정해 둠
     const [invisible, setInvisible] = useState(false);
     useEffect(() => {
-        const timeout = setTimeout(() => {
+        const timeOut = setTimeout(() => {
             setInvisible(true);
         }, 2000);
-        return () => clearTimeout(timeout);
+        return () => clearTimeout(timeOut);
     }, []);
     
     //문제 랜덤 선정
-    const questions = [Q1, Q2, Q3];
+    const questions = [q1, q2, q3];
     const random = parseInt(Math.random() * questions.length);
    
     return (
@@ -78,22 +78,22 @@ function Quiz7(props) {
                     <table className="Quiz7-table" align="center" border={1}>
                         <thead><th colSpan={4}>[ 보기 ]</th></thead>
                         <tbody>
-                            {TableGroup.map((TableGroup) => (
+                            {tableGroup.map((tableGroup) => (
                                 <>
                                     <tr>
-                                        <th rowSpan={3}>{TableGroup.gNumber}</th>
-                                        <td rowSpan={3}><img src={TableGroup.gImg}/></td>
-                                        <td width="40%" colSpan={2}>{TableGroup.gName}</td>
+                                        <th rowSpan={3}>{tableGroup.gNumber}</th>
+                                        <td rowSpan={3}><img src={tableGroup.gImg}/></td>
+                                        <td width="40%" colSpan={2}>{tableGroup.gName}</td>
                                     </tr>
 
                                     <tr>
                                         <td width="15%">자세 분류</td>
-                                        <td>{TableGroup.gOption}</td>
+                                        <td>{tableGroup.gOption}</td>
                                     </tr>
 
                                     <tr>
                                         <td width="15%">효과</td>
-                                        <td>{TableGroup.gGood}</td>
+                                        <td>{tableGroup.gGood}</td>
                                     </tr>
                                 </>
                             ))}

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
 import "./Quiz8.css";
 
-function Quiz8(props) {
+function Quiz8() {
     const [selected1, setSelected1] = useState({ group1: null, group2: null, group3: null, group4: null });
     const [selected2, setSelected2] = useState(null);
     const [answerWrite, setAnswerWrite] = useState('');
@@ -12,7 +12,7 @@ function Quiz8(props) {
     const [totalScore, setTotalScore] = useState(0);
     const [correct, setCorrect] = useState(null);
 
-    const TestGroup = [
+    const testGroup = [
         {
             gName: 'group1',
             gQuestion: "1. 술을 얼마나 자주 마십니까?",
@@ -59,7 +59,7 @@ function Quiz8(props) {
         }
     ];
 
-    const ResultGroup = [
+    const resultGroup = [
         {
             gName: '저위험음주자',
             gNum1: '0 ~ 7점',
@@ -148,19 +148,19 @@ function Quiz8(props) {
                             </tr>
                         </thead>
                         <tbody>
-                            {TestGroup.map(group => (
-                                <tr key={group.gName}>
-                                    <td width={"35%"}>{group.gQuestion}</td>
+                            {testGroup.map(test => (
+                                <tr key={test.gName}>
+                                    <td width={"35%"}>{test.gQuestion}</td>
                                     {[0, 1, 2, 3, 4].map(score => (
                                         <td
                                             key={score}
-                                            className={selected1[group.gName] === score ? "Quiz8-table-selected" : ""}
-                                            onClick={() => handleChange(group.gName, score)}
-                                        >
-                                            {group.gOptions
-                                                .filter(option => option.score === score)
-                                                .map(option => option.label)
-                                            }
+                                            className={selected1[test.gName] === score ? "Quiz8-table-selected" : ""}
+                                            onClick={() => handleChange(test.gName, score)}>
+
+                                                {test.gOptions
+                                                    .filter(option => option.score === score)
+                                                    .map(option => option.label)
+                                                }
                                         </td>
                                     ))}
                                 </tr>
@@ -188,7 +188,7 @@ function Quiz8(props) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {ResultGroup.map(result => (
+                                    {resultGroup.map(result => (
                                         <tr key={result.gName}>
                                             <td>{result.gName}</td>
                                             <td 
