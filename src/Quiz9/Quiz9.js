@@ -75,7 +75,6 @@ function Quiz9() {
     const sokdamRandom = parseInt(Math.random() * sokdamGroup.length);
     useEffect(() => {
         const group = sokdamGroup[sokdamRandom];
-    // console.log(random);
         setRandom(group);
     }, []);
 
@@ -119,7 +118,6 @@ function Quiz9() {
                 {!hint && <button className="Quiz9-container-hint" onClick={handleHint}>힌트 보기</button>}
                 {hint && <h4 className="Quiz9-container-h4">{random.gHint}</h4>}
             
-
                 <div className="Quiz9-answer">
                     <div className="Quiz9-answer-content">
                         <label>

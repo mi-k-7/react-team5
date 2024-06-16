@@ -63,20 +63,20 @@ function Quiz7_2(props) {
                 </tbody>
             </table>
 
-        <div className="Quiz7-answer">
-            <div className="Quiz7-answer-content">
-                {answerWrite.map((answer, index) => (
-                    <div key={index}>
-                        <label className="Quiz7-answer-content-inner">{answerNum[index]}</label>
-                        <input className="Quiz7-answer-content-inner" type="text" value={answer} onChange={(event) => handleChange(index, event.target.value)}/>
-                    </div>
-                ))}
+            <div className="Quiz7-answer">
+                <div className="Quiz7-answer-content">
+                    {answerWrite.map((answer, index) => (
+                        <div key={index}>
+                            <label className="Quiz7-answer-content-inner">{answerNum[index]}</label>
+                            <input className="Quiz7-answer-content-inner" type="text" value={answer} onChange={(event) => handleChange(index, event.target.value)}/>
+                        </div>
+                    ))}
+                </div>
+                
+                <div className="Quiz7-answer-content">
+                    <button className="Quiz7-answer-button" onClick={handleClick}>정답 확인</button>
+                </div>
             </div>
-            
-            <div className="Quiz7-answer-content">
-                <button className="Quiz7-answer-button" onClick={handleClick}>정답 확인</button>
-            </div>
-        </div>
         </>
     );
 }
